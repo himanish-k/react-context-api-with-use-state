@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react'
+import { createContext, useContext, useState } from 'react'
 import './App.css';
 
 const MyContext = createContext(null);
@@ -15,6 +15,7 @@ function App() {
       }}>
         <>
           <Paragraph />
+          <AnotherParagraph />
           <ChangeColorButton />
         </>
       </MyContext.Provider>
@@ -27,6 +28,19 @@ function Paragraph() {
     <MyContext.Consumer>
       {({ font, color }) => <p style={{ font, color }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque arcu tellus, fermentum vel nibh eget.</p>}
     </MyContext.Consumer>
+  )
+}
+
+function AnotherParagraph() {
+  const { font, color } = useContext(MyContext);
+
+  return (
+    <p style={{ font, color }}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Ut a ipsum nec magna maximus dapibus in sit amet velit.
+      Curabitur sed enim pharetra, dictum velit dictum, aliquam massa. Quisque tempor urna vitae scelerisque lacinia.
+      Sed sed rhoncus neque, vel tempus enim. Sed a metus placerat, euismod massa vitae, cursus felis.
+    </p>
   )
 }
 
