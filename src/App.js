@@ -1,7 +1,7 @@
-import { createContext, useContext, useState } from 'react'
+import { useContext, useState } from 'react'
+import MyContext from './MyContext'
+import AClassComponent from './AClassComponent';
 import './App.css';
-
-const MyContext = createContext(null);
 
 function App() {
   const [color, changeColor] = useState('red');
@@ -16,6 +16,7 @@ function App() {
         <>
           <Paragraph />
           <AnotherParagraph />
+          <AClassComponent />
           <ChangeColorButton />
         </>
       </MyContext.Provider>
